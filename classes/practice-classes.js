@@ -14,7 +14,19 @@
   Be sure to match the capitalization and punctuation of the string.
 */
 
-//CODE HERE
+class Character {
+  constructor(name, type){
+    this.name = name;
+    this.type = type;
+
+    this.getInfo =()=>{
+      return `This is a ${this.type} character named ${this.name}`
+
+    } 
+
+  }
+
+}
 
 //////////////////PROBLEM 2////////////////////
 
