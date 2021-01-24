@@ -44,14 +44,27 @@ class Character {
   Call your new class NPC
 */
 
-//CODE HERE
+class NPC extends Character {
+  constructor(name, type, location, phrase, getInfo){
+    super(name, type, getInfo)
+    this.location = location;
+    this.phrase = phrase;
+    this.dialogue =()=>{
+      return `${this.name}: ${this.phrase}`
+    }
+
+  }
+
+
+
+}
 
 /*
     Create an NPC named Ralph who is a human located in Niceland. His phrase should be `I'm gonna wreck it!`. 
     Store your new NPC in a variable called 'ralph'.
 */
 
-//CODE HERE
+const ralph = new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
 
 /*
     Next you're going to create three variables to store information about Ralph.
@@ -60,7 +73,9 @@ class Character {
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-//CODE HERE
+const ralphsInfo =  new ralph()
+const ralphsDialogue = new ralph
+
 
 //////////////////PROBLEM 3////////////////////
 
