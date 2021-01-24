@@ -18,15 +18,16 @@ class Character {
   constructor(name, type){
     this.name = name;
     this.type = type;
+  }
 
-    this.getInfo =()=>{
-      return `This is a ${this.type} character named ${this.name}`
+    getInfo(){
+      return `This is a ${this.type} character named ${this.name}.`
 
     } 
 
   }
 
-}
+
 
 //////////////////PROBLEM 2////////////////////
 
@@ -46,18 +47,18 @@ class Character {
 
 class NPC extends Character {
   constructor(name, type, location, phrase, getInfo){
-    super(name, type, getInfo)
-    this.location = location;
-    this.phrase = phrase;
-    this.dialogue =()=>{
+    super(name, type, getInfo, Character) 
+    this.location = location
+    this.phrase = phrase 
+  }
+   
+  
+    dialogue(){
       return `${this.name}: ${this.phrase}`
     }
 
   }
 
-
-
-}
 
 /*
     Create an NPC named Ralph who is a human located in Niceland. His phrase should be `I'm gonna wreck it!`. 
@@ -73,7 +74,8 @@ const ralph = new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-// const ralphsInfo =  new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`, )
+const ralphsInfo = new ralph(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
+ralphsInfo.getInfo();
 // const ralphsDialogue = new ralph(`I'm gonna wreck it!`)
 
 
@@ -100,7 +102,27 @@ const ralph = new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
   Call your new class Player
 */
 
-//CODE HERE
+// class Player extends Character {
+// constructor(healthLevel, attackLevel){
+//   super(Character)
+//   this.healthLevel = healthLevel
+//   this.attackLevel = attackLevel
+// }
+// defendAmount(amount){
+//   this.healthLevel = this.healthLevel - amount
+//   if(healthLevel > 0){
+//     return obj {
+//       attackStrength: amount,
+//       remainingHealth: this.healthLevel, 
+//       message: `${this.name} is still in the fight!`
+
+//     }
+//   }
+
+// }
+
+
+// }
 
 /*
     Next, we'll create two Players.
