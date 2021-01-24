@@ -47,7 +47,7 @@ class Character {
 
 class NPC extends Character {
   constructor(name, type, location, phrase, getInfo){
-    super(name, type, getInfo, Character) 
+    super(name, type, location, phrase, getInfo) 
     this.location = location
     this.phrase = phrase 
   }
@@ -74,8 +74,8 @@ const ralph = new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-const ralphsInfo = new ralph(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
-ralphsInfo.getInfo();
+//const ralphsInfo = new ralph(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
+//ralphsInfo.getInfo();
 // const ralphsDialogue = new ralph(`I'm gonna wreck it!`)
 
 
@@ -102,27 +102,31 @@ ralphsInfo.getInfo();
   Call your new class Player
 */
 
-// class Player extends Character {
-// constructor(healthLevel, attackLevel){
-//   super(Character)
-//   this.healthLevel = healthLevel
-//   this.attackLevel = attackLevel
-// }
-// defendAmount(amount){
-//   this.healthLevel = this.healthLevel - amount
-//   if(healthLevel > 0){
-//     return obj {
-//       attackStrength: amount,
-//       remainingHealth: this.healthLevel, 
-//       message: `${this.name} is still in the fight!`
+class Player extends Character {
+constructor(name, type, healthLevel, attackLevel){
+  super(name, type)
+  this.healthLevel = healthLevel
+  this.attackLevel = attackLevel
+}
+defend(amount){
+  this.healthLevel = this.healthLevel - amount
+  if(this.healthLevel > 0){
+    return  {
+      attackStrength: this.attackLevel,
+      remainingHealth: this.healthLevel, 
+      message: `${this.name} is still in the fight!`
+    } 
+    
+   } else {
+      return `${this.name} has been defeated!`
+    }
+  }
 
-//     }
-//   }
 
-// }
+}
 
 
-// }
+
 
 /*
     Next, we'll create two Players.
@@ -132,7 +136,8 @@ ralphsInfo.getInfo();
     and he's a firebender type with a 100 healthLevel and 0 attackLevel.
 */
 
-//CODE HERE
+const aang = new Player('Aang', 'airbender', 100, 100)
+const ozai = new Player('Ozai', 'firebender', 100, 0)
 
 /*
     Let's see how a fight between these two would go. 
@@ -141,7 +146,7 @@ ralphsInfo.getInfo();
     (You can console log battle to see what happens)
 */
 
-//CODE HERE
+//const battle = new ozai()
 
 //////////////////PROBLEM 4////////////////////
 
@@ -159,7 +164,21 @@ ralphsInfo.getInfo();
       - Example string: `Wonder Woman used flight!`
 */
 
-//CODE HERE
+class Hero extends Player {
+  constructor(name, type, healthLevel, attackLevel){
+    super(name, type, healthLevel, attackLevel)
+    this.superPowers = []
+  }
+  addSuperPower(power){
+    this.superPowers.push(power)
+   
+  }
+  useSuperPower(index){
+    let powerNum = this.superPowers[index]
+    return `${this.name} used ${powerNum}!`
+  }
+
+}
 
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
@@ -170,4 +189,10 @@ ralphsInfo.getInfo();
   Last, invoke useSuperPower passing in 0 for the index and store the result in a variable called fireSpitterAttack.
 */
 
-//CODE HERE
+const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
+fireSpitter.addSuperPower('spitting fire')
+fireSpitter.addSuperPower('invisibility')
+fireSpitter.addSuperPower('flying')
+
+const fireSpitterAttack = fireSpitter.useSuperPower(0)
+console.log(fireSpitterAttack)
