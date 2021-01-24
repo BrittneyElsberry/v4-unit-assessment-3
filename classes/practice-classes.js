@@ -46,7 +46,7 @@ class Character {
 
 class NPC extends Character {
   constructor(name, type, location, phrase, getInfo){
-    super(name, type, Character)
+    super(name, type, getInfo)
     this.location = location;
     this.phrase = phrase;
     this.dialogue =()=>{
@@ -73,8 +73,8 @@ const ralph = new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`)
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-const ralphsInfo =  new ralph()
-const ralphsDialogue = new ralph(`I'm gonna wreck it!`)
+// const ralphsInfo =  new NPC(`Ralph`, `human`,`Niceland`, `I'm gonna wreck it!`, )
+// const ralphsDialogue = new ralph(`I'm gonna wreck it!`)
 
 
 //////////////////PROBLEM 3////////////////////
