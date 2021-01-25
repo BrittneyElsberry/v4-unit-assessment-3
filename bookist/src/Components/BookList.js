@@ -10,9 +10,9 @@ super(props)
 
 }
 
-    mappedBooks = this.props.books.map((elem)=>{
-    return (<div><ul><li key={elem.title}> {elem.title} </li> <li key={elem.author}>{elem.author}</li></ul> 
-    <img key={elem.image} id="bookImages" src={elem.img} height="100px" onClick={()=>this.props.addToShelf(elem.title)}/></div>)})
+    // mappedBooks = this.props.books.map((elem)=>{
+    // return (<div><ul><li key={elem}> {elem.title} </li> <li key={elem.author}>{elem.author}</li></ul> 
+    // <img key={elem.image} id="bookImages" src={elem.img} height="100px" onClick={()=>this.props.addToShelf(elem.title)}/></div>)})
       
             
 
@@ -23,7 +23,9 @@ super(props)
             <div>
           <div>
         
-              {this.mappedBooks}
+              {this.props.books.map((elem)=>{
+    return (<div><ul><li key={elem}> {elem.title} </li> <li key={elem.author}>{elem.author}</li></ul> 
+    <img key={elem.image} id="bookImages" src={elem.img} height="100px" onClick={()=>this.props.addToShelf(elem.title)}/></div>)})}
               
             </div>
            

@@ -18,8 +18,9 @@ this.state = {
 
 }
 this.addToShelf.bind(this)
-//this.clearShelf.bind(this)
-//clearShelf={this.clearShelf}
+this.clearShelf.bind(this)
+this.reset.bind(this)
+
 
 
 }
@@ -29,14 +30,21 @@ this.setState({shelf: [...this.state.shelf, bookTitle]}) //spread this.state.she
 
   }
 
-// clearShelf=()=>{
-// return this.state.shelf = []
-// } 
+clearShelf=()=>{
+this.setState({shelf: []})
+} 
   
 
-  // filterBooks=(input)=>{
+  filterBooks=(input)=>{
+  const {books} = this.state  //just needs to be this.state
   
-  // }
+  let filteredBooks = books.filter((elem)=> {elem.includes(input)}) 
+  this.setState({books: [...filteredBooks]}) 
+  }
+
+  reset=()=>{
+    this.setState({books: data})
+  }
 
 
 render(){
@@ -44,10 +52,11 @@ render(){
   return (
     <div className="App">
     <Header/>
+    <SearchBar filterBooks={this.filterBooks} reset={this.reset}/>
     <BookList books={this.state.books} 
               addToShelf={this.addToShelf}/>
-    <Shelf shelf={this.state.shelf} />
-    <SearchBar />
+    <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf} />
+   
     </div>
   )
 }

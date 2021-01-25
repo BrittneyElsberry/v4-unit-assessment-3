@@ -10,14 +10,30 @@ constructor(){
     }
 }
 
+
+handleChange=(input)=>{
+   return this.setState({userInput: input})
+}
+
+handleClick=(elem)=>{
+return <div key={elem.index}>{this.props.filterBooks}</div>
+}
+
+handleClear=()=>{
+    this.setState=({userInput: ''})
+    return this.props.reset
+}
+
+
 render(){
+    console.log(this.state.userInput)
 return( <div>
 
-<input type="text" placeholder="type here" />
+<input type="text" placeholder="type here" onChange={(input)=>this.handleChange(input.target.value)} value={this.state.userInput} />
 <br></br>
-<button>Search</button>
+<button onClick={this.handleClick}>Search</button>
 
-<button>Clear Search</button>
+<button onClick={this.handleClear}>Clear Search</button>
 
 </div>
 

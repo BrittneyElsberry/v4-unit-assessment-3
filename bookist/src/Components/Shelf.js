@@ -8,20 +8,23 @@ class Shelf extends Component {
         
     }
 
+//add under render
+//
 
-
-    mappedTitles = this.props.shelf.map((elem)=>{   
-    return <div><ul><li key={elem}> {elem} </li></ul></div>})
+    //mappedTitles = this.props.shelf.map((elem, index)=>{   
+   // return <div key={index}>{elem}</div>})
           
-//*onClick={this.props.clearShelf}
+
 
     render(){
      console.log(this.props.shelf)
         return (
                 <div id="shelf"><h1>Shelf</h1>
                 <div id="shelfTitles">
-                {this.mappedTitles}   
-                <button>clear shelf</button>
+                 
+                {this.props.shelf.map((elem, index)=>{   
+    return <div key={index}>{elem}</div>})}  
+                <button onClick={this.props.clearShelf}>clear shelf</button>
                 </div>
                </div>
 
