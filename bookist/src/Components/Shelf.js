@@ -2,8 +2,8 @@ import App from '../App';
 import {Component} from 'react';
 
 class Shelf extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
 
     }
 

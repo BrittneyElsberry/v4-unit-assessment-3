@@ -10,25 +10,28 @@ super(props)
 
 }
 
-mappedBooks = this.props.books.map((elem)=>{
-return elem.title;
-              
-    
-              })
+    mappedBooks = this.props.books.map((elem)=>{
             
+    return <ul><li key={elem.title}> {elem.title} </li> <li key={elem.author}></li></ul>, <img key={elem.img} id="bookImages" src={elem.img} height="100px" onClick={(e)=>this.props.addToShelf(e)}/> })
+      
             
+//    testing = this.props.addToShelf
+//    {this.testing} 
 
     render(){
-        console.log(this.props.books)
+     
         return(
 
             <div>
+          <div>
+          {this.mappedBooks}
+
+            </div>
            
-            <p>  
-            Why can't i get it to display: 
-            {mappedBooks}
-        </p>
-        </div>
+              
+         
+             
+           </div>
 
 
         )
@@ -39,23 +42,3 @@ return elem.title;
 export default BookList;
 
 
-
-/****
-const Movie = (props) => {
-    // our Movie component takes in props from its parent (Movies.js) that we
-    // can then access and use here. The 3 props we have are the movie data,
-    // the index, and a delete function to remove an item from the array
-    return (
-        <div>
-            {/* displaying the movie name found on props.movie.name *///}
-           // <h2>Title: {props.movie.name}</h2>
-            //{/* displaying the movie direction found on props.movie.director */}
-            //<h2>Director: {props.movie.director}</h2>
-         //   {/* button to delete a movie. delete function found on props.deleteMovie
-           // and we pass in props.index so that function up in Movies.js can identify
-           // the movie we want to delete */}
-           // <button onClick={() => props.deleteMovie(props.index)}>Delete Movie</button>
-       // </div>
-    //)
-//}
-// */

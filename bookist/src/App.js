@@ -22,10 +22,12 @@ this.state = {
 
 }
 
+//this.addToShelf = this.addToShelf(this)
+
 addToShelf =(bookClicked)=>{
   //this function adds a book to the empty shelf array on state once the book is clicked.
   this.setState({shelf: bookClicked})
-
+  
 
   }
 
@@ -37,7 +39,7 @@ render(){
     <Header/>
     <BookList books={this.state.books} 
               addToShelf={this.addToShelf}/>
-    <Shelf />
+    <Shelf shelf={this.state.shelf} />
     </div>
   )
 }

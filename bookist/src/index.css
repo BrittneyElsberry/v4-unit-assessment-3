@@ -14,27 +14,37 @@ code {
 
 .App {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   box-sizing: border-box;
+  padding: 30px;
+
 }
 
 p {
-  background-color: blue;
+
   height: 100vh;
-  width: 60vw;
+  /*width: 60vw;*/
   margin: 0;
+  flex-wrap: wrap;
 
 }
 
 #pageHeader {
-  background-color: aqua;
   width: 100vw;
 }
 
 #shelf {
   background-color: blueviolet;
-  width: 30vw;
+  /*width: 30vw;*/
   height: 100vh;
+  width: 15vw;
   margin: 0;
+}
+
+#bookImages{
+  padding: 10px;
+ 
+}
+ul {
+  list-style: none;
 }
