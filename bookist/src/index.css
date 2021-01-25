@@ -14,18 +14,21 @@ code {
 
 .App {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-sizing: border-box;
   padding: 30px;
+  flex-wrap: wrap;
 
 }
 
 p {
 
   height: 100vh;
-  /*width: 60vw;*/
+  width: 60vw;
   margin: 0;
   flex-wrap: wrap;
+  padding: 30px;
+  flex-direction: row;
 
 }
 
@@ -34,11 +37,16 @@ p {
 }
 
 #shelf {
-  background-color: blueviolet;
+
   /*width: 30vw;*/
   height: 100vh;
-  width: 15vw;
+  width: 25vw;
   margin: 0;
+  
+
+}
+#shelfTitles{
+  font-size: 10px;
 }
 
 #bookImages{
@@ -47,4 +55,7 @@ p {
 }
 ul {
   list-style: none;
+}
+li {
+  font-size: 10px;
 }

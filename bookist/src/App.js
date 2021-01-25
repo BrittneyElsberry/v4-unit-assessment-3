@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import BookList from './Components/BookList';
 import Shelf from './Components/Shelf';
 import data from './data';
+import SearchBar from './Components/SearchBar';
 
 
 class App extends Component {
@@ -16,20 +17,26 @@ this.state = {
 
 
 }
-
-//this.setState=({books: data})
+this.addToShelf.bind(this)
+//this.clearShelf.bind(this)
+//clearShelf={this.clearShelf}
 
 
 }
 
-//this.addToShelf = this.addToShelf(this)
-
-addToShelf =(bookClicked)=>{
-  //this function adds a book to the empty shelf array on state once the book is clicked.
-  this.setState({shelf: bookClicked})
-  
+addToShelf =(bookTitle)=>{
+this.setState({shelf: [...this.state.shelf, bookTitle]}) //spread this.state.shelf to preserve the shelf array, add bootTitle to push each title to array
 
   }
+
+// clearShelf=()=>{
+// return this.state.shelf = []
+// } 
+  
+
+  // filterBooks=(input)=>{
+  
+  // }
 
 
 render(){
@@ -40,6 +47,7 @@ render(){
     <BookList books={this.state.books} 
               addToShelf={this.addToShelf}/>
     <Shelf shelf={this.state.shelf} />
+    <SearchBar />
     </div>
   )
 }
