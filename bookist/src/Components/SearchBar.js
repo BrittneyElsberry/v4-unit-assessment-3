@@ -8,15 +8,20 @@ constructor(){
     this.state = {
         userInput: ''
     }
+
+    this.handleChange.bind(this)
+    this.handleClick.bind(this)
+    this.handleClear.bind(this)
 }
+
 
 
 handleChange=(input)=>{
-   return this.setState({userInput: input})
+   this.setState({userInput: input})
 }
 
-handleClick=(elem)=>{
-return <div key={elem.index}>{this.props.filterBooks}</div>
+handleClick=()=>{
+return <div key={this.props.filterBooks.index}>{this.props.filterBooks}</div>
 }
 
 handleClear=()=>{
@@ -27,6 +32,7 @@ handleClear=()=>{
 
 render(){
     console.log(this.state.userInput)
+    //console.log(`this is checking handleClear ${this.handleClear}`)
 return( <div>
 
 <input type="text" placeholder="type here" onChange={(input)=>this.handleChange(input.target.value)} value={this.state.userInput} />

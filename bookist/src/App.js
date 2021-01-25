@@ -36,10 +36,11 @@ this.setState({shelf: []})
   
 
   filterBooks=(input)=>{
-  const {books} = this.state  //just needs to be this.state
-  
-  let filteredBooks = books.filter((elem)=> {elem.includes(input)}) 
+  const {books} = this.state  
+
+  let filteredBooks = books.filter((elem)=> elem.includes(input)) 
   this.setState({books: [...filteredBooks]}) 
+  
   }
 
   reset=()=>{
