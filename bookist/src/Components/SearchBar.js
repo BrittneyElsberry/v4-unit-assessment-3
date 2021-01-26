@@ -33,7 +33,7 @@ handleClear=()=>{
 render(){
     console.log(this.state.userInput)
     //console.log(`this is checking handleClear ${this.handleClear}`)
-return( <div>
+return( <div id="searchBar" >
 
 <input type="text" placeholder="type here" onChange={(input)=>this.handleChange(input.target.value)} value={this.state.userInput} />
 <br></br>
